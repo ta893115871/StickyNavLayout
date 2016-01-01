@@ -13,7 +13,7 @@ https://github.com/hongyangAndroid/Android-StickyNavLayout
 6.增加对GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的GridView)</p>
 7.修改其它一些bug</p>
 8.将原文迁移到AS中</p>
-9.将此项目发不到JCenter,方便大家的使用哦</p>
+9.将此项目发布到JCenter,方便大家的使用哦</p>
 
 #GridViewWithHeaderAndFooterFragment
 ```java
