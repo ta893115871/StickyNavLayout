@@ -10,7 +10,7 @@ https://github.com/hongyangAndroid/Android-StickyNavLayout
 3.修改手快速滑动的时候触发onItemClick事件的bug</p>
 4.增加一些自定义属性,后文有介绍</p>
 5.增加是否处于悬浮的回调接口,和滑动到悬浮状态的比例:0~1 ;1~0 之间变化的数字</p>
-6.增加对GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的支持)</p>
+6.增加对GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的GridView)</p>
 7.修改其它一些bug</p>
 8.将原文迁移到AS中</p>
 9.将此项目发不到JCenter,方便大家的使用哦</p>
@@ -169,3 +169,8 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 ```java
   https://github.com/ta893115871/PagerSlidingTabStrip
 ```    
+#感谢
+感谢我的同事的帮助
+```java
+https://github.com/DukeLee1989
+```  
