@@ -23,9 +23,7 @@ https://github.com/hongyangAndroid/Android-StickyNavLayout
 本项目纯属开源,只是为了更好的提高Android的开发技术,小宝贝们~~~~~
 
 # 效果图
-
-<img src="stick2.gif"/>
-
+<img src="stick.gif"/>
 #自定义属性
 ```java
 <resources>

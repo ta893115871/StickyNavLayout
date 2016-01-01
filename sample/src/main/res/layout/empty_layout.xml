@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:text="空的介面"
+        android:text="空的界面"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#828282" />
 </LinearLayout>
