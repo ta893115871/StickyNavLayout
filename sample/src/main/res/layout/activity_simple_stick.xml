@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pst="http://schemas.android.com/apk/res-auto"
+    xmlns:stick="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SimpleStickActivity">
+
+    <com.gxz.library.StickyNavLayout
+        android:id="@+id/id_stick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        stick:isStickNav="true">
+
+        <LinearLayout
+            android:id="@id/id_stickynavlayout_topview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#fee"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="top-view"
+                android:textAllCaps="true"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!--     <com.astuetz.PagerSlidingTabStrip
+                 android:id="@+id/id_stickynavlayout_indicator"
+                 android:layout_width="match_parent"
+                 android:layout_height="48dip"
+                 pst:pstsIndicatorColor="#2b5cb1"
+                 pst:pstsIndicatorHeight="3dp"
+                 pst:pstsTextAllCaps="true"
+                 pst:pstsUnderlineColor="#2b5cb1" />-->
+
+        <com.gxz.PagerSlidingTabStrip
+            android:id="@+id/id_stickynavlayout_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            pst:pstsDividerColor="@color/colorPrimary"
+            pst:pstsIndicatorColor="@color/colorPrimary"
+            pst:pstsIndicatorHeight="5dp"
+            pst:pstsScaleZoomMax="0"
+            pst:pstsShouldExpand="false"
+            pst:pstsTextSelectedColor="#303F9F"
+            pst:pstsUnderlineColor="@color/colorPrimary" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.gxz.library.StickyNavLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_dialog_email" />
+</RelativeLayout>
