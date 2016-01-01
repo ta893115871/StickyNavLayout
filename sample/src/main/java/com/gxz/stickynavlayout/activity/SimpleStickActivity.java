@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.gxz.PagerSlidingTabStrip;
 import com.gxz.library.StickyNavLayout;
@@ -88,9 +87,9 @@ public class SimpleStickActivity extends AppCompatActivity {
             if (lastIsTopHidden != isStick) {
                 lastIsTopHidden = isStick;
                 if (isStick) {
-                    Toast.makeText(SimpleStickActivity.this, "本宝宝悬浮了", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(SimpleStickActivity.this, "本宝宝悬浮了", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(SimpleStickActivity.this, "本宝宝又不悬浮了", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(SimpleStickActivity.this, "本宝宝又不悬浮了", Toast.LENGTH_LONG).show();
                 }
             }
         }

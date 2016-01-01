@@ -24,7 +24,7 @@ https://github.com/hongyangAndroid/Android-StickyNavLayout
 
 # 效果图
 
-<img src="stick1.gif"/>
+<img src="stick2.gif"/>
 
 #自定义属性
 ```java
