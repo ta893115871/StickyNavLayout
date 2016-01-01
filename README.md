@@ -1,19 +1,19 @@
 # StickyNavLayout 悬浮控件
-该项目是在一个开源项目的基础上修改的
+该项目是在一个开源项目的基础上修改的</p>
 原项目地址:
 ```java
 https://github.com/hongyangAndroid/Android-StickyNavLayout
 ```
-修改如下:
+修改如下:</p>
 1.在原基础上支持对内容listview等控件空布局的滑动支持</p>
-2.修改当刚刚悬浮的时候抬起手触发onItemClick事件的bug
-3.修改手快速滑动的时候触发onItemClick事件的bug
-4.增加一些自定义属性,后文有介绍
-5.增加是否处于悬浮的回调接口,和滑动到悬浮状态的比例:0~1 ;1~0 之间变化的数字
-6.增加对GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的支持)
-7.修改其它一些bug
-8.将原文迁移到AS中
-9.将此项目发不到JCenter,方便大家的使用哦
+2.修改当刚刚悬浮的时候抬起手触发onItemClick事件的bug</p>
+3.修改手快速滑动的时候触发onItemClick事件的bug</p>
+4.增加一些自定义属性,后文有介绍</p>
+5.增加是否处于悬浮的回调接口,和滑动到悬浮状态的比例:0~1 ;1~0 之间变化的数字</p>
+6.增加对GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的支持)</p>
+7.修改其它一些bug</p>
+8.将原文迁移到AS中</p>
+9.将此项目发不到JCenter,方便大家的使用哦</p>
 
 #GridViewWithHeaderAndFooterFragment
 ```java
@@ -39,15 +39,15 @@ https://github.com/hongyangAndroid/Android-StickyNavLayout
 ```
 
 #使用时的注意事项
-注意控件id的设置
-top区域:id必须为: android:id="@id/id_stickynavlayout_topview"
-悬浮区域:id必须为: android:id="@+id/id_stickynavlayout_indicator"
-内容区域:id必须为:  android:id="@id/id_stickynavlayout_viewpager"
-内容区域
-1.比需为ViewPager或者其子类
-2.ViewPager的内容可以是Fragment,如果Fragment想用ListView,RecycleView等需要设置其id为:
- android:id="@+id/id_stickynavlayout_innerscrollview"
-比如:
+注意控件id的设置</p>
+top区域:id必须为: android:id="@id/id_stickynavlayout_topview"</p>
+悬浮区域:id必须为: android:id="@+id/id_stickynavlayout_indicator"</p>
+内容区域:id必须为:  android:id="@id/id_stickynavlayout_viewpager"</p>
+内容区域</p>
+1.比需为ViewPager或者其子类</p>
+2.ViewPager的内容可以是Fragment,如果Fragment想用ListView,RecycleView等需要设置其id为:</p>
+ android:id="@+id/id_stickynavlayout_innerscrollview"</p>
+比如:</p>
 ```java
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -165,7 +165,7 @@ or
     
 ```
 #Demo 
-Demo中的导航控件是:PagerSlidingTabStrip
+Demo中的导航控件是:PagerSlidingTabStrip</p>
 是我一个开源项目:
 
 ```java
