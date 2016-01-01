@@ -5,7 +5,7 @@
 https://github.com/hongyangAndroid/Android-StickyNavLayout
 ```
 修改如下:
-1.在原基础上支持对内容listview等控件空布局的滑动支持
+1.在原基础上支持对内容listview等控件空布局的滑动支持</p>
 2.修改当刚刚悬浮的时候抬起手触发onItemClick事件的bug
 3.修改手快速滑动的时候触发onItemClick事件的bug
 4.增加一些自定义属性,后文有介绍
