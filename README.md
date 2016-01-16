@@ -19,7 +19,7 @@
 本项目纯属开源,只是为了更好的提高Android的开发技术,小宝贝们~~~~~
 
 # 效果图
-<img src="/screenshots/stick_0.gif"/>
+<img src="/screenshots/stick_0.gif"/></p>
 <img src="/screenshots/stick_1.gif"/>
 #自定义属性
 ```java
