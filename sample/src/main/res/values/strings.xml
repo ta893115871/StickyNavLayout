@@ -33,4 +33,5 @@
 
 
     </string>
+    <string name="title_activity_pull_to_refresh">PullToRefreshActivity</string>
 </resources>

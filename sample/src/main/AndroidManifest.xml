@@ -15,7 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SimpleStickActivity"></activity>
+        <activity
+            android:name=".activity.SimpleStickActivity"
+            android:label="SimpleStickActivity" />
+        <activity
+            android:name=".activity.PullToRefreshStickActivity"
+            android:label="PullToRefreshStickActivity" />
+        <activity android:name=".activity.TopViewOverOneScreenActivity"></activity>
     </application>
 
 </manifest>

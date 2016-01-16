@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 // 这个version影响后面的引用
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
 
-version = "1.0"
+version = "1.1"
 
 android {
     resourcePrefix "gxz_" //随意填写
@@ -98,3 +98,5 @@ bintray {
         publish = true
     }
 }
+//          ./gradlew install
+//        ./gradlew bintrayUpload

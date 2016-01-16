@@ -81,13 +81,21 @@ public class StickyNavLayout extends LinearLayout {
         this.isStickNav = isStickNav;
     }
 
-    public void setCustomHeight(int height) {
+    /****
+     * 设置顶部区域的高度
+     * @param height height
+     */
+    public void setTopViewHeight(int height) {
         mTopViewHeight = height;
         if (isStickNav)
             scrollTo(0, mTopViewHeight);
     }
-
-    public void setCustomHeight(int height, int offset) {
+    /****
+     * 设置顶部区域的高度
+     * @param height height
+     * @param  offset offset
+     */
+    public void setTopViewHeight(int height, int offset) {
         mTopViewHeight = height;
         if (isStickNav)
             scrollTo(0, mTopViewHeight - offset);
@@ -102,6 +110,12 @@ public class StickyNavLayout extends LinearLayout {
         if (!(view instanceof ViewPager)) {
             throw new RuntimeException(
                     "id_stickynavlayout_viewpager show used by ViewPager !");
+        }else if(mTop instanceof  ViewGroup){
+            ViewGroup viewGroup= (ViewGroup) mTop;
+           if( viewGroup.getChildCount()>=2){
+               throw new RuntimeException(
+                       "if the TopView(android:id=\"R.id.id_stickynavlayout_topview\") is a ViewGroup(ScrollView,LinearLayout,FrameLayout, ....) ,the children count should be one  !");
+           }
         }
         mViewPager = (ViewPager) view;
     }
@@ -126,15 +140,29 @@ public class StickyNavLayout extends LinearLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mTopViewHeight = mTop.getMeasuredHeight() - stickOffset;
-        Log.d(TAG, "mTopViewHeight" + mTopViewHeight);
-
-        if (null != mInnerScrollView) {
-            Log.d(TAG, "mInnerScrollViewHeight" + mInnerScrollView.getMeasuredHeight());
-        }
-        if (isStickNav) {
-            scrollTo(0, mTopViewHeight);
-        }
+        final ViewGroup.LayoutParams params = mTop.getLayoutParams();
+        mTop.post(new Runnable() {
+            @Override
+            public void run() {
+                if (mTop instanceof  ViewGroup){
+                    ViewGroup viewGroup= (ViewGroup) mTop;
+                    int height = viewGroup.getChildAt(0).getHeight();
+                    mTopViewHeight = height - stickOffset;
+                    params.height = height;
+                    mTop.setLayoutParams(params);
+                    mTop.requestLayout();
+                }else{
+                    mTopViewHeight = mTop.getMeasuredHeight() - stickOffset;
+                }
+                Log.d(TAG, "mTopViewHeight" + mTopViewHeight);
+                if (null != mInnerScrollView) {
+                    Log.d(TAG, "mInnerScrollViewHeight" + mInnerScrollView.getMeasuredHeight());
+                }
+                if (isStickNav) {
+                    scrollTo(0, mTopViewHeight);
+                }
+            }
+        });
     }
 
     @Override
@@ -321,6 +349,9 @@ public class StickyNavLayout extends LinearLayout {
                 mInnerScrollView = (ViewGroup) (v
                         .findViewById(R.id.id_stickynavlayout_innerscrollview));
             }
+        }else{
+            throw new RuntimeException(
+                    "mViewPager  should be  used  FragmentPagerAdapter or  FragmentStatePagerAdapter  !");
         }
         //...
     }

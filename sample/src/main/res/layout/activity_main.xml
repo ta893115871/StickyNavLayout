@@ -21,4 +21,10 @@
         android:layout_height="wrap_content"
         android:onClick="StickPullRefresh"
         android:text="支持下拉刷新的悬浮" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="TopViewOverOne"
+        android:text="顶部区域超过一屏的情况" />
 </LinearLayout>

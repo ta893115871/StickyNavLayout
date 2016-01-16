@@ -1,9 +1,7 @@
 # StickyNavLayout 悬浮控件
 该项目是在一个开源项目的基础上修改的</p>
 原项目地址:
-```java
-https://github.com/hongyangAndroid/Android-StickyNavLayout
-```
+<https://github.com/hongyangAndroid/Android-StickyNavLayout/>
 修改如下:</p>
 1.在原基础上支持对内容listview等控件空布局的滑动支持</p>
 2.修改当刚刚悬浮的时候抬起手触发onItemClick事件的bug</p>
@@ -16,14 +14,13 @@ https://github.com/hongyangAndroid/Android-StickyNavLayout
 9.将此项目发布到JCenter,方便大家的使用哦</p>
 
 #GridViewWithHeaderAndFooterFragment
-```java
-地址:https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter
-```
+<https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter/>
 #声明
 本项目纯属开源,只是为了更好的提高Android的开发技术,小宝贝们~~~~~
 
 # 效果图
-<img src="stick.gif"/>
+<img src="/screenshots/stick_0.gif"/>
+<img src="/screenshots/stick_1.gif"/>
 #自定义属性
 ```java
 <resources>
@@ -127,6 +124,71 @@ or
 
     </com.gxz.library.StickyNavLayout>
 ```
+#TopView(顶部区域大于一屏)
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:pst="http://schemas.android.com/apk/res-auto"
+    xmlns:stick="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/store_house_ptr_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    cube_ptr:ptr_duration_to_close="300"
+    cube_ptr:ptr_duration_to_close_header="2000"
+    cube_ptr:ptr_keep_header_when_refresh="true"
+    cube_ptr:ptr_pull_to_fresh="false"
+    cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+    cube_ptr:ptr_resistance="1.7">
+
+    <com.gxz.library.StickyNavLayout
+        android:id="@+id/id_stick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        stick:isStickNav="false">
+            <!--顶部区域为ScrollView-->
+        <ScrollView
+            android:id="@id/id_stickynavlayout_topview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fee"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/msg"
+                    android:textAllCaps="true"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.gxz.PagerSlidingTabStrip
+            android:id="@+id/id_stickynavlayout_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            pst:pstsDividerColor="@color/colorPrimary"
+            pst:pstsIndicatorColor="@color/colorPrimary"
+            pst:pstsIndicatorHeight="5dp"
+            pst:pstsScaleZoomMax="0"
+            pst:pstsShouldExpand="false"
+            pst:pstsTextSelectedColor="#303F9F"
+            pst:pstsUnderlineColor="@color/colorPrimary" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.gxz.library.StickyNavLayout>
+</in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+```
 # Java  代码使用
 相信你可以点一下就知道什么用了 .... 是不是呢?小宝贝~~~!!
 
@@ -148,7 +210,7 @@ or
 
 ```java
 <dependency>
-        <groupId>com.gxz.pagerslidingtabstrip</groupId>
+        <groupId>com.gxz.stickynavlayout</groupId>
         <artifactId>library</artifactId>
         <version>1.1</version>
         <type>jar</type>
@@ -159,18 +221,14 @@ or
 
 ```java
 
-    compile('com.gxz.stickynavlayout:library:1.0')
+    compile 'com.gxz.stickynavlayout:library:1.1'
     
 ```
 #Demo 
 Demo中的导航控件是:PagerSlidingTabStrip</p>
 是我一个开源项目:
+<https://github.com/ta893115871/PagerSlidingTabStrip/>
 
-```java
-  https://github.com/ta893115871/PagerSlidingTabStrip
-```    
-#感谢
-感谢我的同事的帮助
-```java
-https://github.com/DukeLee1989
-```  
+#V1.1版本
+1.增加如果TopView大于一屏TopView无法显示的问题,比如顶部区域为ScrollView
+2.支持顶部区域可以是ScrollView

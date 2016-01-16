@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:pst="http://schemas.android.com/apk/res-auto"
+    xmlns:stick="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/store_house_ptr_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    cube_ptr:ptr_duration_to_close="300"
+    cube_ptr:ptr_duration_to_close_header="2000"
+    cube_ptr:ptr_keep_header_when_refresh="true"
+    cube_ptr:ptr_pull_to_fresh="false"
+    cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+    cube_ptr:ptr_resistance="1.7">
+
+    <com.gxz.library.StickyNavLayout
+        android:id="@+id/id_stick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        stick:isStickNav="false">
+
+        <ScrollView
+            android:id="@id/id_stickynavlayout_topview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fee"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/msg"
+                    android:textAllCaps="true"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.gxz.PagerSlidingTabStrip
+            android:id="@+id/id_stickynavlayout_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            pst:pstsDividerColor="@color/colorPrimary"
+            pst:pstsIndicatorColor="@color/colorPrimary"
+            pst:pstsIndicatorHeight="5dp"
+            pst:pstsScaleZoomMax="0"
+            pst:pstsShouldExpand="false"
+            pst:pstsTextSelectedColor="#303F9F"
+            pst:pstsUnderlineColor="@color/colorPrimary" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.gxz.library.StickyNavLayout>
+</in.srain.cube.views.ptr.PtrClassicFrameLayout>

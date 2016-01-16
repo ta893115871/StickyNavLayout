@@ -23,7 +23,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
 //    compile project(':library')
-    compile('com.gxz.stickynavlayout:library:1.0')
+    compile 'com.gxz.stickynavlayout:library:1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:design:23.1.1'
@@ -32,4 +32,5 @@ dependencies {
     compile 'com.gxz.pagerslidingtabstrip:library:1.1'
 //    compile 'in.srain.cube:grid-view-with-header-footer:1.0.12'//library中已经有了
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
 }

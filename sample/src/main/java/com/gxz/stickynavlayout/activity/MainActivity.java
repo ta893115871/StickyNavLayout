@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void StickPullRefresh(View view) {
-
+        startActivity(new Intent(this, PullToRefreshStickActivity.class));
     }
+    public void TopViewOverOne(View view) {
+        startActivity(new Intent(this, TopViewOverOneScreenActivity.class));
+    }
+
 }
