@@ -230,5 +230,5 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 <https://github.com/ta893115871/PagerSlidingTabStrip/>
 
 #V1.1版本
-1.增加如果TopView大于一屏TopView无法显示的问题,比如顶部区域为ScrollView
+1.增加如果TopView大于一屏TopView无法显示的问题,比如顶部区域为ScrollView</p>
 2.支持顶部区域可以是ScrollView
