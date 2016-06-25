@@ -27,4 +27,15 @@
         android:layout_height="wrap_content"
         android:onClick="TopViewOverOne"
         android:text="顶部区域超过一屏的情况" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="SwipeRefresh"
+        android:text="外套SwipeRefreshLayout" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickTopOperate"
+        android:text="动态隐藏/显示top区域内的控件" />
 </LinearLayout>

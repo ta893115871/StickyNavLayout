@@ -21,7 +21,9 @@
         <activity
             android:name=".activity.PullToRefreshStickActivity"
             android:label="PullToRefreshStickActivity" />
-        <activity android:name=".activity.TopViewOverOneScreenActivity"></activity>
+        <activity android:name=".activity.TopViewOverOneScreenActivity"/>
+        <activity android:name=".activity.SwipeRefreshLayoutActivity"/>
+        <activity android:name=".activity.TopOperateActivity"/>
     </application>
 
 </manifest>

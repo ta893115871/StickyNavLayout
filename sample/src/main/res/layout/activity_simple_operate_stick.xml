@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pst="http://schemas.android.com/apk/res-auto"
+    xmlns:stick="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.gxz.library.StickyNavLayout
+        android:id="@+id/id_stick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        stick:isStickNav="false">
+
+        <LinearLayout
+            android:id="@id/id_stickynavlayout_topview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fee"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="top-view"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/id_btn_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Button1" />
+
+                <LinearLayout
+                    android:id="@+id/id_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#ccf"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="name-layout"
+                        android:textSize="30sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/id_btn_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Button2" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--     <com.astuetz.PagerSlidingTabStrip
+                 android:id="@+id/id_stickynavlayout_indicator"
+                 android:layout_width="match_parent"
+                 android:layout_height="48dip"
+                 pst:pstsIndicatorColor="#2b5cb1"
+                 pst:pstsIndicatorHeight="3dp"
+                 pst:pstsTextAllCaps="true"
+                 pst:pstsUnderlineColor="#2b5cb1" />-->
+
+        <com.gxz.PagerSlidingTabStrip
+            android:id="@+id/id_stickynavlayout_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            pst:pstsDividerColor="@color/colorPrimary"
+            pst:pstsIndicatorColor="@color/colorPrimary"
+            pst:pstsIndicatorHeight="5dp"
+            pst:pstsScaleZoomMax="0"
+            pst:pstsShouldExpand="false"
+            pst:pstsTextSelectedColor="#303F9F"
+            pst:pstsUnderlineColor="@color/colorPrimary" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.gxz.library.StickyNavLayout>
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:text="显示" />
+
+    <Button
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/show"
+        android:layout_toLeftOf="@+id/show"
+        android:text="隐藏" />
+</RelativeLayout>

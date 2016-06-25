@@ -106,8 +106,8 @@ public class GridViewWithHeaderAndFooterFragment extends BaseFragment {
     private void setGridViewHeaderAndFooter() {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
-        View headerView = layoutInflater.inflate(R.layout.layout_header, null, false);
-        View footerView = layoutInflater.inflate(R.layout.layout_footer, null, false);
+        View headerView = layoutInflater.inflate(R.layout.layout_header, gridView, false);
+        View footerView = layoutInflater.inflate(R.layout.layout_footer, gridView, false);
 
         //locate views
         TextView headerText = (TextView) headerView.findViewById(R.id.text);

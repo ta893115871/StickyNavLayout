@@ -1,11 +1,11 @@
 package com.gxz.stickynavlayout.activity;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.gxz.PagerSlidingTabStrip;
 import com.gxz.library.StickyNavLayout;
@@ -22,27 +22,34 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
+import butterknife.OnClick;
 
-public class TopViewOverOneScreenActivity extends AppCompatActivity {
+/**
+ * @author 顾修忠-guxiuzhong@youku.com/gfj19900401@163.com
+ */
+public class TopOperateActivity extends AppCompatActivity {
 
     @Bind(R.id.id_stickynavlayout_indicator)
     PagerSlidingTabStrip pagerSlidingTabStrip;
     @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager viewPager;
-    @Bind(R.id.store_house_ptr_frame)
-    PtrClassicFrameLayout mPtrFrame;
+    @Bind(R.id.show)
+    Button showButton;
+    @Bind(R.id.hide)
+    Button hideButton;
     @Bind(R.id.id_stick)
     StickyNavLayout stickyNavLayout;
-
-    private  Work workAsync;
+    @Bind(R.id.id_btn_1)
+    Button button1;
+    @Bind(R.id.id_btn_2)
+    Button button2;
+    @Bind(R.id.id_name_layout)
+    LinearLayout linearLayoutLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_top_view_over_one_screen);
+        setContentView(R.layout.activity_simple_operate_stick);
         ButterKnife.bind(this);
 
         ArrayList<BaseFragment> fragments = new ArrayList<>();
@@ -57,36 +64,23 @@ public class TopViewOverOneScreenActivity extends AppCompatActivity {
         pagerSlidingTabStrip.setViewPager(viewPager);
         pagerSlidingTabStrip.setOnPageChangeListener(mPageChangeListener);
 
-        workAsync=new Work();
-        mPtrFrame.setLastUpdateTimeRelateObject(this);
-        mPtrFrame.setPtrHandler(new PtrHandler() {
-            @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                workAsync.execute();
-            }
+        stickyNavLayout.setStickNavAndScrollToNav();
+    }
 
-            @Override
-            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
-                //设置下拉刷新的条件
-                return stickyNavLayout.getScrollY() == 0;
-//                return false;
-            }
-        });
-        // the following are default settings
-        mPtrFrame.setResistance(1.7f);
-        mPtrFrame.setRatioOfHeaderHeightToRefresh(1.2f);
-        mPtrFrame.setDurationToClose(200);
-        mPtrFrame.setDurationToCloseHeader(1000);
-        // default is false
-        mPtrFrame.setPullToRefresh(false);
-        // default is true
-        mPtrFrame.setKeepHeaderWhenRefresh(true);
-        mPtrFrame.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mPtrFrame.autoRefresh();
-            }
-        }, 150);
+    @OnClick(R.id.show)
+    public void show() {
+        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+        linearLayoutLayout.setVisibility(View.VISIBLE);
+        stickyNavLayout.updateTopViews();
+    }
+
+    @OnClick(R.id.hide)
+    public void hide() {
+        button1.setVisibility(View.GONE);
+//        button2.setVisibility(View.GONE);
+        linearLayoutLayout.setVisibility(View.GONE);
+        stickyNavLayout.updateTopViews();
     }
 
     private ViewPager.OnPageChangeListener mPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
@@ -106,27 +100,9 @@ public class TopViewOverOneScreenActivity extends AppCompatActivity {
         }
     };
 
-    private class Work extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            SystemClock.sleep(2000);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            mPtrFrame.refreshComplete();
-        }
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
-        if (workAsync != null && workAsync.getStatus() != AsyncTask.Status.FINISHED) {
-            workAsync.cancel(true);
-        }
     }
 }

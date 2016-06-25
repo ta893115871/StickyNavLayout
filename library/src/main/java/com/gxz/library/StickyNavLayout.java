@@ -21,7 +21,6 @@ import android.widget.ListView;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
 
-
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
 /**
@@ -77,8 +76,16 @@ public class StickyNavLayout extends LinearLayout {
                 .getScaledMinimumFlingVelocity();
     }
 
-    public void setisStickNav(boolean isStickNav) {
+    public void setIsStickNav(boolean isStickNav) {
         this.isStickNav = isStickNav;
+    }
+
+    /**
+     * 设置悬浮,并自动滚动到悬浮位置(即把top区域滚动上去)
+     */
+    public void setStickNavAndScrollToNav() {
+        this.isStickNav = true;
+        scrollTo(0, mTopViewHeight);
     }
 
     /****
@@ -128,19 +135,58 @@ public class StickyNavLayout extends LinearLayout {
         //修复键盘弹出后键盘关闭布局高度不对问题
         int height = getMeasuredHeight() - mNav.getMeasuredHeight();
         mViewPagerMaxHeight = (height >= mViewPagerMaxHeight ? height : mViewPagerMaxHeight);
-        params.height = mViewPagerMaxHeight - stickOffset;
+        params.height = /*mViewPagerMaxHeight - stickOffset*/height;
+        mViewPager.setLayoutParams(params);
+
+
         //修复键盘弹出后Top高度不对问题
-        ViewGroup.LayoutParams topParams = mTop.getLayoutParams();
         int topHeight = mTop.getMeasuredHeight();
+        ViewGroup.LayoutParams topParams = mTop.getLayoutParams();
+
         mTopViewMaxHeight = (topHeight >= mTopViewMaxHeight ? topHeight : mTopViewMaxHeight);
-        topParams.height = mTopViewMaxHeight;
+        topParams.height = /*mTopViewMaxHeight*/topHeight;
+        mTop.setLayoutParams(topParams);
+
+        //设置mTopViewHeight
+        mTopViewHeight=topParams.height;
+        Log.d(TAG, "onMeasure--mTopViewHeight:" + mTopViewHeight);
+
+
+
+    }
+
+    /**
+     * 更新top区域的视图,如果是处于悬浮状态,隐藏top区域的控件是不起作用的!!
+     */
+    public  void updateTopViews(){
+        if (isTopHidden){
+            return;
+        }
+        final ViewGroup.LayoutParams params = mTop.getLayoutParams();
+        mTop.post(new Runnable() {
+            @Override
+            public void run() {
+                if (mTop instanceof  ViewGroup){
+                    ViewGroup viewGroup= (ViewGroup) mTop;
+                    int height = viewGroup.getChildAt(0).getHeight();
+                    mTopViewHeight = height - stickOffset;
+                    params.height = height;
+                    mTop.setLayoutParams(params);
+                    params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                }else{
+                    mTopViewHeight = mTop.getMeasuredHeight() - stickOffset;
+                }
+            }
+        });
     }
 
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+
         final ViewGroup.LayoutParams params = mTop.getLayoutParams();
+        Log.d(TAG, "onSizeChanged-mTopViewHeight:" + mTopViewHeight);
         mTop.post(new Runnable() {
             @Override
             public void run() {
@@ -154,9 +200,9 @@ public class StickyNavLayout extends LinearLayout {
                 }else{
                     mTopViewHeight = mTop.getMeasuredHeight() - stickOffset;
                 }
-                Log.d(TAG, "mTopViewHeight" + mTopViewHeight);
+                Log.d(TAG, "mTopViewHeight:" + mTopViewHeight);
                 if (null != mInnerScrollView) {
-                    Log.d(TAG, "mInnerScrollViewHeight" + mInnerScrollView.getMeasuredHeight());
+                    Log.d(TAG, "mInnerScrollViewHeight:" + mInnerScrollView.getMeasuredHeight());
                 }
                 if (isStickNav) {
                     scrollTo(0, mTopViewHeight);

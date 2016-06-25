@@ -20,7 +20,8 @@
 
 # 效果图
 <img src="/screenshots/stick_0.gif"/></p>
-<img src="/screenshots/stick_1.gif"/>
+<img src="/screenshots/stick_1.gif"/></p>
+<img src="/screenshots/stick_2.gif"/>
 #自定义属性
 ```java
 <resources>
@@ -32,6 +33,8 @@
     </declare-styleable>
 </resources>
 ```
+#stickOffset 属性细说
+现在悬浮是当top区域完全滑动到屏幕外面时,中间的悬浮区域悬浮起来了,如果你有这么一种需求是距离悬浮区域有一定的距离比如(40dp)可以用这个属性,满足需求.
 
 #使用时的注意事项
 注意控件id的设置</p>
@@ -212,7 +215,7 @@ or
 <dependency>
         <groupId>com.gxz.stickynavlayout</groupId>
         <artifactId>library</artifactId>
-        <version>1.1</version>
+        <version>1.2</version>
         <type>jar</type>
         <classifier>sources</classifier>
 </dependency>
@@ -221,7 +224,7 @@ or
 
 ```java
 
-    compile 'com.gxz.stickynavlayout:library:1.1'
+    compile 'com.gxz.stickynavlayout:library:1.2'
     
 ```
 #Demo 
@@ -232,3 +235,26 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 #V1.1版本
 1.增加如果TopView大于一屏TopView无法显示的问题,比如顶部区域为ScrollView</p>
 2.支持顶部区域可以是ScrollView
+
+#V1.2版本
+1.修复TOP区域中不支持控件动态GONE/VISIBLE的BUG</p>
+#使用用法,设置完GONE/VISIBLE后调用updateTopViews();方法</p>
+```java
+    @OnClick(R.id.show)
+    public void show() {
+        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+        linearLayoutLayout.setVisibility(View.VISIBLE);
+        stickyNavLayout.updateTopViews();
+    }
+
+    @OnClick(R.id.hide)
+    public void hide() {
+        button1.setVisibility(View.GONE);
+//        button2.setVisibility(View.GONE);
+        linearLayoutLayout.setVisibility(View.GONE);
+        stickyNavLayout.updateTopViews();
+    }
+```
+2.增加setStickNavAndScrollToNav方法.</p>
+该方法的意思是:java代码动态设置悬浮,并自动滚动到悬浮位置(即把top区域滚动上去),详细见demo中的TopOperateActivity
