@@ -38,9 +38,9 @@
 
 #使用时的注意事项
 注意控件id的设置</p>
-top区域:id必须为: android:id="@id/id_stickynavlayout_topview"</p>
+top区域:id必须为: android:id="@+id/id_stickynavlayout_topview"</p>
 悬浮区域:id必须为: android:id="@+id/id_stickynavlayout_indicator"</p>
-内容区域:id必须为:  android:id="@id/id_stickynavlayout_viewpager"</p>
+内容区域:id必须为:  android:id="@+id/id_stickynavlayout_viewpager"</p>
 内容区域</p>
 1.比需为ViewPager或者其子类</p>
 2.ViewPager的内容可以是Fragment,如果Fragment想用ListView,RecycleView等需要设置其id为:</p>
@@ -238,7 +238,7 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 
 #V1.2版本
 1.修复TOP区域中不支持控件动态GONE/VISIBLE的BUG</p>
-#使用用法,设置完GONE/VISIBLE后调用updateTopViews();方法</p>
+使用用法,设置完GONE/VISIBLE后调用updateTopViews();方法</p>
 ```java
     @OnClick(R.id.show)
     public void show() {
