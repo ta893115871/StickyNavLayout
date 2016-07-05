@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.gxz.PagerSlidingTabStrip;
 import com.gxz.library.StickyNavLayout;
@@ -36,6 +37,8 @@ public class TopViewOverOneScreenActivity extends AppCompatActivity {
     PtrClassicFrameLayout mPtrFrame;
     @Bind(R.id.id_stick)
     StickyNavLayout stickyNavLayout;
+    @Bind(R.id.id_tv_id)
+    TextView textViewMsg;
 
     private  Work workAsync;
 
