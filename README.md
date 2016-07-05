@@ -263,6 +263,7 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
  textViewMsg.setText(getResources().getString(R.string.msg));
  stickyNavLayout.updateTopViews();
 ```
-从而可以避免topView有空白或者高度不够的问题
+从而可以避免topView有空白或者高度不够的问题</p>
+
 2.增加setStickNavAndScrollToNav方法.</p>
 该方法的意思是:java代码动态设置悬浮,并自动滚动到悬浮位置(即把top区域滚动上去),详细见demo中的TopOperateActivity
