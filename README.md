@@ -268,5 +268,5 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 2.增加setStickNavAndScrollToNav方法.</p>
 该方法的意思是:java代码动态设置悬浮,并自动滚动到悬浮位置(即把top区域滚动上去),详细见demo中的TopOperateActivity
 
-V1.3版本
+#V1.3版本
 修改因1.2版本造成的stickOffset不起作用的问题
