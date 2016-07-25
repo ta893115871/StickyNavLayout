@@ -11,6 +11,7 @@
         android:id="@+id/id_stick"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        stick:stickOffset="20dp"
         stick:isStickNav="true">
 
         <LinearLayout

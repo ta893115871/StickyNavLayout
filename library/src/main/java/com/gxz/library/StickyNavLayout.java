@@ -148,7 +148,7 @@ public class StickyNavLayout extends LinearLayout {
         mTop.setLayoutParams(topParams);
 
         //设置mTopViewHeight
-        mTopViewHeight=topParams.height;
+        mTopViewHeight=topParams.height-stickOffset;
         Log.d(TAG, "onMeasure--mTopViewHeight:" + mTopViewHeight);
 
 
