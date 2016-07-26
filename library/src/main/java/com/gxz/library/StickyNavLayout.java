@@ -135,7 +135,7 @@ public class StickyNavLayout extends LinearLayout {
         //修复键盘弹出后键盘关闭布局高度不对问题
         int height = getMeasuredHeight() - mNav.getMeasuredHeight();
         mViewPagerMaxHeight = (height >= mViewPagerMaxHeight ? height : mViewPagerMaxHeight);
-        params.height = /*mViewPagerMaxHeight - stickOffset*/height;
+        params.height = /*mViewPagerMaxHeight - stickOffset*/height-stickOffset;
         mViewPager.setLayoutParams(params);
 
 

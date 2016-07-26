@@ -215,7 +215,7 @@ or
 <dependency>
         <groupId>com.gxz.stickynavlayout</groupId>
         <artifactId>library</artifactId>
-        <version>1.3</version>
+        <version>1.3.1</version>
         <type>jar</type>
         <classifier>sources</classifier>
 </dependency>
@@ -224,7 +224,7 @@ or
 
 ```java
 
-    compile 'com.gxz.stickynavlayout:library:1.3'
+    compile 'com.gxz.stickynavlayout:library:1.3.1'
     
 ```
 #Demo 
@@ -270,3 +270,5 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 
 #V1.3版本
 修改因1.2版本造成的stickOffset不起作用的问题
+#V1.3.1版本
+修改stickOffset造成内容区域底部显示不全问题,最近丢三落四的!
