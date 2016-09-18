@@ -335,6 +335,8 @@ public class StickyNavLayout extends LinearLayout {
                                 mVelocityTracker.addMovement(ev);
                                 mLastY = y;
                                 return true;
+                            }else {
+                                reture false;
                             }
                         }
                     } else if (mInnerScrollView instanceof GridViewWithHeaderAndFooter) {
@@ -353,6 +355,8 @@ public class StickyNavLayout extends LinearLayout {
                                 mVelocityTracker.addMovement(ev);
                                 mLastY = y;
                                 return true;
+                            }else{
+                                return false;
                             }
                         }
                     } else if (mInnerScrollView instanceof RecyclerView) {
