@@ -1,17 +1,11 @@
 # StickyNavLayout 悬浮控件
-该项目是在一个开源项目的基础上修改的</p>
-原项目地址:
-<https://github.com/hongyangAndroid/Android-StickyNavLayout/>
-修改如下:</p>
-1.在原基础上支持对内容listview等控件空布局的滑动支持</p>
-2.修改当刚刚悬浮的时候抬起手触发onItemClick事件的bug</p>
-3.修改手快速滑动的时候触发onItemClick事件的bug</p>
-4.增加一些自定义属性,后文有介绍</p>
-5.增加是否处于悬浮的回调接口,和滑动到悬浮状态的比例:0~1 ;1~0 之间变化的数字</p>
-6.增加对GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的GridView)</p>
-7.修改其它一些bug</p>
-8.将原文迁移到AS中</p>
-9.将此项目发布到JCenter,方便大家的使用哦</p>
+## 特点
+1.顶部支持ScrollView及ScrollView大于一屏幕的情况
+2.悬浮区域支持普通view，viewgroup
+3.内容支持GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的GridView)
+ScrollView,ListView,RecyclerView以及对应的空布局及loading布局。
+4.支持在外面包装SwipeRefreshLayout，ultra-ptr 下拉刷新
+5.支持悬浮回调
 
 #GridViewWithHeaderAndFooterFragment
 <https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter/>
@@ -215,7 +209,7 @@ or
 <dependency>
         <groupId>com.gxz.stickynavlayout</groupId>
         <artifactId>library</artifactId>
-        <version>1.3.1</version>
+        <version>1.3.2</version>
         <type>jar</type>
         <classifier>sources</classifier>
 </dependency>
@@ -224,7 +218,7 @@ or
 
 ```java
 
-    compile 'com.gxz.stickynavlayout:library:1.3.1'
+    compile 'com.gxz.stickynavlayout:library:1.3.2'
     
 ```
 #Demo 
@@ -272,3 +266,5 @@ Demo中的导航控件是:PagerSlidingTabStrip</p>
 修改因1.2版本造成的stickOffset不起作用的问题
 #V1.3.1版本
 修改stickOffset造成内容区域底部显示不全问题,最近丢三落四的!
+#V1.3.2版本
+修改一些bug

@@ -44,13 +44,29 @@ public class RecycleViewFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        //final GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+//        mRecycleView.setLayoutManager(gridLayoutManager);//这里用线性宫格显示 类似于grid view
+//
+//        if (mRecycleView != null) {//设置头部及底部View占据整行空间
+//            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//                @Override
+//                public int getSpanSize(int position) {
+//                    return
+//                    position%9==0 ? gridLayoutManager.getSpanCount() : 1;
+//                }
+//            });
+//        }
+
+
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity(), OrientationHelper.VERTICAL, false));
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             list.add("RecycleView----item-->>>>" + i);
         }
 
-        RecycleViewAdapter adapter = new RecycleViewAdapter(list);
+        final RecycleViewAdapter adapter = new RecycleViewAdapter(list);
         mRecycleView.setAdapter(adapter);
         adapter.setOnItemOnClickListener(new RecycleViewAdapter.OnItemOnClickListener() {
             @Override
