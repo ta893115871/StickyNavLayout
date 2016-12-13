@@ -1,11 +1,11 @@
 # StickyNavLayout 悬浮控件
-## 特点
-1.顶部支持ScrollView及ScrollView大于一屏幕的情况
-2.悬浮区域支持普通view，viewgroup
-3.内容支持GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的GridView)
-ScrollView,ListView,RecyclerView以及对应的空布局及loading布局。
-4.支持在外面包装SwipeRefreshLayout，ultra-ptr 下拉刷新
-5.支持悬浮回调
+# 特点
+* 1.顶部支持ScrollView及ScrollView大于一屏幕的情况</p>
+* 2.悬浮区域支持普通view，viewgroup</p>
+* 3.内容支持GridView-GridViewWithHeaderAndFooterFragment(支持header和footer的GridView)</p>
+  ScrollView,ListView,RecyclerView以及对应的空布局及loading布局。</p>
+* 4.支持在外面包装SwipeRefreshLayout，ultra-ptr 下拉刷新</p>
+* 5.支持悬浮回调</p>
 
 #GridViewWithHeaderAndFooterFragment
 <https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter/>
